@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 
 docker = "*"
+docopt = "*"
 
 
 [dev-packages]

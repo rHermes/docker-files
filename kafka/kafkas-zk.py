@@ -1,6 +1,17 @@
 #!/usr/bin/env python
-import docker
+"""Zookeeper and kafka setup.
+
+Usage:
+    kafkas-zk.py (start | stop) (zk | kf) ...
+
+Options:
+
+"""
 import time
+from docopt import docopt
+
+
+import docker
 
 PREFIX = 'kafkas'
 
@@ -75,25 +86,29 @@ def setup_kafka(c):
                 labels={"bid.boii.service": "{}_kafka".format(PREFIX)},
                 mounts=[mlog],
                 network=NW_NAME,
-                restart_policy={"Name": "on-failure", "MaximumRetryCount": 5},
-                command=['bin/kafka-server-start.sh', 'config/server.properties', '--override', 'zookeeper.connect='+zookeeper_line, '--override', 'broker.id='+str(j), '--override', 'default.replication.factor=3', '--override', 'num.partitions=8', '--override', 'log.dirs=/data/kafka-logs']
+                restart_policy={"Name": "on-failure", "MaximumRetryCount": 10},
+                #restart_policy={"Name": "unless-stopped"},
+                command=["bash", "-c", 'sleep 20; bin/kafka-server-start.sh config/server.properties --override zookeeper.connect='+zookeeper_line+ ' --override broker.id='+str(j) + ' --override default.replication.factor=3 --override num.partitions=8 --override log.dirs=/data/kafka-logs --override min.insync.replicas=2 --override auto.create.topics.enable=false']
         )
 
+
 if __name__ == "__main__":
+    arguments = docopt(__doc__, version="kafkas-zk 0.0.1")
     client = docker.from_env()
 
-    # Create the network if needed.
+    # Various commands
+    if arguments['stop']:
+        if arguments['kf']:
+            clean_f(client,{"label": KF_LABEL_SERVICE}) 
 
-    # Make sure that the volumes are here.
+        if arguments['zk']:
+            clean_f(client,{"label": ZK_LABEL_SERVICE})
+    elif arguments['start']:
+        if arguments['zk']:
+            setup_zookeeper(client)
 
-    # Clean old zookeeper and old kafkas.
-    #clean_f(client,{"label": ZK_LABEL_SERVICE})
-    clean_f(client,{"label": KF_LABEL_SERVICE})
+        if arguments['kf']:
+            setup_kafka(client)
+    else:
+        print("THIS SHOULD NEVER BE REACHED")
 
-    # Create the zookeeper instances.
-    #setup_zookeeper(client)
-
-
-    # Create the kafka instances.
-    setup_kafka(client)
-    

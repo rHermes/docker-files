@@ -1,18 +1,18 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "573f4a3d6bba3819d40b9e752cdaa255bfcad1dfc553577bb6e6839609d02e66"
+            "sha256": "d4d28fc64f165934b989432960ddfed797628165aa04d253e8faa181e941244f"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.3",
+            "implementation_version": "3.6.4",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-            "platform_release": "4.14.4-1-ARCH",
+            "platform_release": "4.14.8-1-ARCH",
             "platform_system": "Linux",
-            "platform_version": "#1 SMP PREEMPT Tue Dec 5 19:10:06 UTC 2017",
-            "python_full_version": "3.6.3",
+            "platform_version": "#1 SMP PREEMPT Wed Dec 20 21:27:44 UTC 2017",
+            "python_full_version": "3.6.4",
             "python_version": "3.6",
             "sys_platform": "linux"
         },
@@ -45,10 +45,10 @@
         },
         "docker": {
             "hashes": [
-                "sha256:11589e3a7742f900978b4d3e3a6910542ea44cc65de82835dc5f25fcdedc2c23",
-                "sha256:6f417527b3cfd7ba1f5be5fb1d9a2500706b5968f66773131d81c18e19b7a325"
+                "sha256:c1d4e37b1ea03b2b6efdd0379640f6ea372fefe56efa65d4d17c34c6b9d54558",
+                "sha256:144248308e8ea31c4863c6d74e1b55daf97cc190b61d0fe7b7313ab920d6a76c"
             ],
-            "version": "==2.6.1"
+            "version": "==2.7.0"
         },
         "docker-pycreds": {
             "hashes": [
@@ -56,6 +56,12 @@
                 "sha256:93833a2cf280b7d8abbe1b8121530413250c6cd4ffed2c1cf085f335262f7348"
             ],
             "version": "==0.2.1"
+        },
+        "docopt": {
+            "hashes": [
+                "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+            ],
+            "version": "==0.6.2"
         },
         "idna": {
             "hashes": [
@@ -87,10 +93,10 @@
         },
         "websocket-client": {
             "hashes": [
-                "sha256:91222bb3a22ba989ac87eec9121655f295dcb746b6207c5576ffa549ab69302c",
-                "sha256:15f585566e2ea7459136a632b9785aa081093064391878a448c382415e948d72"
+                "sha256:7a40abbd2534c91e667ca6507ccbb30d96816361840ef424dff49b24956fcdae",
+                "sha256:933f6bbf08b381f2adbca9e93d7e7958ba212b42c73acb310b18f0fbe74f3738"
             ],
-            "version": "==0.44.0"
+            "version": "==0.46.0"
         }
     },
     "develop": {
@@ -117,17 +123,17 @@
         },
         "jedi": {
             "hashes": [
-                "sha256:3af518490ffcd00a3074c135b42511e081575e9abd115c216a34491411ceebb0",
-                "sha256:f6d5973573e76b1fd2ea75f6dcd6445d02d41ff3af5fc61b275b4e323d1dd396"
+                "sha256:d795f2c2e659f5ea39a839e5230d70a0b045d0daee7ca2403568d8f348d0ad89",
+                "sha256:d6e799d04d1ade9459ed0f20de47c32f2285438956a677d083d3c98def59fa97"
             ],
-            "version": "==0.11.0"
+            "version": "==0.11.1"
         },
         "parso": {
             "hashes": [
-                "sha256:b573acb69f66a970197b5fdbbdfad3b8a417a520e383133b2b4e708f104bfc9a",
-                "sha256:c5279916bb417aa2bf634648ff895cf35dce371d7319744884827bfad06f8d7b"
+                "sha256:a7bb86fe0844304869d1c08e8bd0e52be931228483025c422917411ab82d628a",
+                "sha256:5815f3fe254e5665f3c5d6f54f086c2502035cb631a91341591b5a564203cffb"
             ],
-            "version": "==0.1.0"
+            "version": "==0.1.1"
         },
         "pexpect": {
             "hashes": [
