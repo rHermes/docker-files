@@ -2,7 +2,7 @@
 """Zookeeper and kafka setup.
 
 Usage:
-    kafkas-zk.py (start | stop) (zk | kf) ...
+    kafkas-zk.py (start | stop | clean) (zk | kf) ...
 
 Options:
 
@@ -34,7 +34,9 @@ def clean_f(c,fs):
         ct.remove()
 
 def clean_v(c,fs):
-    pass
+    for vt in c.volumes.list(filters=fs):
+        print(vt)
+        vt.remove()
     
 
 def setup_zookeeper(c):
@@ -109,6 +111,15 @@ if __name__ == "__main__":
 
         if arguments['kf']:
             setup_kafka(client)
+    elif arguments['clean']:
+        if arguments['kf']:
+            clean_f(client,{"label": KF_LABEL_SERVICE}) 
+            clean_v(client,{"label": KF_LABEL_SERVICE}) 
+
+        if arguments['zk']:
+            clean_f(client,{"label": ZK_LABEL_SERVICE})
+            clean_v(client,{"label": ZK_LABEL_SERVICE})
+
     else:
         print("THIS SHOULD NEVER BE REACHED")
 
